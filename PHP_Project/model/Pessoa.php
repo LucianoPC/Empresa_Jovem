@@ -13,8 +13,6 @@
 class Pessoa {
     //put your code here
     
-    const NOME = "Nome";
-    
     private $nome;
     private $sexo;
     private $cpf;

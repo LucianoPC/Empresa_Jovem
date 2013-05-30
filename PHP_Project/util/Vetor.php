@@ -12,7 +12,7 @@ use Exception;
  *
  * @author luciano
  */
-class VetorLista {
+class Vetor {
         
     private $vetorLista;
     
@@ -59,6 +59,16 @@ class VetorLista {
 
     public function tamanho(){
         return count($this->vetorLista);
+    }
+    
+    public function imprimir(){
+        echo "[";
+        foreach ($this->vetorLista as $chave => $valor){
+            echo $valor;
+            if($chave != $this->tamanho()-1)
+                echo ", ";
+        }
+        echo "]";
     }
     
     public function reverter(){

@@ -12,16 +12,13 @@ and open the template in the editor.
         <?php
         include("model/Pessoa.php");
         include("control/ControlePessoa.php");
-        include("util/VetorLista.php");
+        include("util/Vetor.php");
         
         
-        $lista = new VetorLista();
+        $lista = new Vetor();
         $lista->adicionar(1);
         $lista->adicionar(2);
-        
-        
-        $lista->reverter();
-        
+                
         echo "Lista:";
         echo "<br> Tamanho: ", $lista->tamanho();
         echo "<br> getElementoNoIndex(0): ", $lista->getElementoNoIndex(0);
@@ -47,6 +44,17 @@ and open the template in the editor.
             echo $e->getMessage();
         }
         
+        echo "<br><br>";
+        
+        $lista_dois = new Vetor();
+        $lista_dois->adicionar(5);
+        $lista_dois->adicionar(10);
+        $lista_dois->adicionar(15);
+        $lista_dois->adicionar(20);
+        
+        echo "lista_dois: ", $lista_dois->imprimir();
+        echo "<br>";
+        $lista_dois->reverter();echo "lista_dois: ", $lista_dois->imprimir();
         echo "<br><br>";
         
         $pessoa = new Pessoa("Luciano", "M", "03635672165");
