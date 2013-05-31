@@ -20,8 +20,21 @@ class Vetor {
         $this->vetorLista = array();
     }
     
-    public function adicionar($elemento){
+    public function adicionarNoFinal($elemento){
         $this->vetorLista[$this->tamanho()] = $elemento;
+    }
+    
+    public function adicionarNoInicio($elemento){
+        $indice = $this->tamanho();
+        $this->adicionarNoFinal($elemento);
+        
+        while($indice > 0){
+            $temp = $this->vetorLista[$indice];
+            $this->vetorLista[$indice] = $this->vetorLista[$indice-1];
+            $this->vetorLista[$indice-1] = $temp;
+            
+            $indice--;
+        }
     }
     
     public function remover($index){
@@ -62,22 +75,33 @@ class Vetor {
     }
     
     public function imprimir(){
-        echo "[";
-        foreach ($this->vetorLista as $chave => $valor){
-            echo $valor;
-            if($chave != $this->tamanho()-1)
+        echo "["; 
+        for($indice = 0; $indice < $this->tamanho(); $indice++){
+            echo $this->getElementoNoIndex($indice);
+            if($indice != $this->tamanho()-1)
                 echo ", ";
         }
         echo "]";
     }
     
     public function reverter(){
-        $vetorRevertido = array();        
-        for($indice = 0; indice < $this->tamanho(); $indice++)
-            $vetorRevertido[indice] = $this->vetorLista[($this->tamanho()-1) - indice];
-        
+        $vetorRevertido = array();
+        foreach ($this->vetorLista as $key=>$valor){
+            $vetorRevertido[($this->tamanho()-1) - $key] = $valor;
+        }
         $this->vetorLista = $vetorRevertido;
     }
+    
+    /*
+    public function reverter(){
+        $vetorRevertido = new Vetor();
+        foreach ($this->vetorLista as $valor){
+            $vetorRevertido->adicionarNoInicio($valor);
+            printf("vetorRevertido[0]: %d <br>", $vetorRevertido->getElementoNoIndex(0));
+        }
+        return $vetorRevertido;
+    }
+    */
     
     private function validarExistenciaDoElemento($elemento){
         if(!$this->contemElemento($elemento)){

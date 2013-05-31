@@ -15,67 +15,40 @@ and open the template in the editor.
         include("util/Vetor.php");
         
         
-        $lista = new Vetor();
-        $lista->adicionar(1);
-        $lista->adicionar(2);
-                
-        echo "Lista:";
-        echo "<br> Tamanho: ", $lista->tamanho();
-        echo "<br> getElementoNoIndex(0): ", $lista->getElementoNoIndex(0);
-        echo "<br> getElementoNoIndex(1): ", $lista->getElementoNoIndex(1);
-        echo "<br> contemElemento(0): ", $lista->contemElemento(0);
-        echo "<br> contemElemento(1): ", $lista->contemElemento(1);
-        echo "<br> contemElemento(2): ", $lista->contemElemento(2);
-        echo "<br> contemIndex(0): ", $lista->contemIndex(0);
-        echo "<br> contemIndex(1): ", $lista->contemIndex(1);
-        echo "<br> contemIndex(2): ", $lista->contemIndex(2);
-        echo "<br> getElementoNoIndex(1): ", $lista->getIndexDoElemento(1);
-        echo "<br> getElementoNoIndex(2): ", $lista->getIndexDoElemento(2);
-        try{
-            echo "<br> getElementoNoIndex(3): ", $lista->getIndexDoElemento(3);
-        }  catch (Exception $e){
-            echo $e->getMessage();
-        }
-        echo "<br> remover(0): ", $lista->remover(0);
-        echo "<br> remover(1): ", $lista->remover(1);
-        try{
-            echo "<br> remover(2): ", $lista->remover(2);
-        }  catch (Exception $e){
-            echo $e->getMessage();
-        }
+        echo "Testando Vetor<br>";
         
-        echo "<br><br>";
+        $vetor = new Vetor();
+        echo "O Vetor foi criado<br>";
         
-        $lista_dois = new Vetor();
-        $lista_dois->adicionar(5);
-        $lista_dois->adicionar(10);
-        $lista_dois->adicionar(15);
-        $lista_dois->adicionar(20);
+        $vetor->adicionarNoFinal(2);
+        echo "adicionarNoFinal(2)<br>";
+        $vetor->adicionarNoFinal(3);
+        echo "adicionarNoFinal(3)<br>";
+        $vetor->adicionarNoFinal(9);
+        echo "adicionarNoFinal(9)<br>";
+        $vetor->adicionarNoFinal(5);
+        echo "adicionarNoFinal(5)<br>";
         
-        echo "lista_dois: ", $lista_dois->imprimir();
-        echo "<br>";
-        $lista_dois->reverter();echo "lista_dois: ", $lista_dois->imprimir();
-        echo "<br><br>";
+        $vetor->adicionarNoInicio(11);
+        echo "adicionarNoInicio(11)<br>";
+        $vetor->adicionarNoInicio(15);
+        echo "adicionarNoInicio(15)<br>";
+        $vetor->adicionarNoInicio(13);
+        echo "adicionarNoInicio(13)<br>";
         
-        $pessoa = new Pessoa("Luciano", "M", "03635672165");
-        
-        echo "Dados da Pessoa:";
-        echo "<br> Nome: ", $pessoa->getNome();
-        echo "<br> Sexo: ", $pessoa->getSexo();
-        echo "<br> CPF: ", $pessoa->getCpf();
-        
-        echo "<br><br>";
-        echo "Vetor: ";
-        
-        $vetor = array(1, 2, 3);
-        echo $vetor[1], "<br>";
-        echo $vetor[0], "<br>";
-        
-        echo "<br>";
-        
-        echo ControlePessoa::NOME;
+        $vetor->adicionarNoInicio("Luciano");
+        echo "adicionarNoInicio(\"Luciano\")<br>";
         
         
+        
+        echo "Tamanho: ", $vetor->tamanho(), "<br>";
+        
+        echo "Vetor: ", $vetor->imprimir(), "<br>";
+        
+        $vetor->reverter();
+        echo "reverter()<br>";
+        
+        echo "Vetor: ", $vetor->imprimir(), "<br>";
         
         
         
