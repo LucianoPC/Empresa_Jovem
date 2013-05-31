@@ -12,43 +12,49 @@ and open the template in the editor.
         <?php
         include("model/Pessoa.php");
         include("control/ControlePessoa.php");
-        include("util/Vetor.php");
+        include("util/Vector.php");
         
         
         echo "Testando Vetor<br>";
         
-        $vetor = new Vetor();
+        $vetor = new Vector();
         echo "O Vetor foi criado<br>";
         
-        $vetor->adicionarNoFinal(2);
+        $vetor->push_back(2);
         echo "adicionarNoFinal(2)<br>";
-        $vetor->adicionarNoFinal(3);
+        $vetor->push_back(3);
         echo "adicionarNoFinal(3)<br>";
-        $vetor->adicionarNoFinal(9);
+        $vetor->push_back(9);
         echo "adicionarNoFinal(9)<br>";
-        $vetor->adicionarNoFinal(5);
+        $vetor->push_back(5);
         echo "adicionarNoFinal(5)<br>";
         
-        $vetor->adicionarNoInicio(11);
+        $vetor->push_front(11);
         echo "adicionarNoInicio(11)<br>";
-        $vetor->adicionarNoInicio(15);
+        $vetor->push_front(15);
         echo "adicionarNoInicio(15)<br>";
-        $vetor->adicionarNoInicio(13);
+        $vetor->push_front(13);
         echo "adicionarNoInicio(13)<br>";
         
-        $vetor->adicionarNoInicio("Luciano");
+        $vetor->push_front("Luciano");
         echo "adicionarNoInicio(\"Luciano\")<br>";
         
+        $vetor->set(5, "Flavio");
+        echo "vetor->set(5, \"Flavio\")<br>";
+        
+        $vetor->push(2, "Eu");
+        echo "vetor->push(2, \"Eu\")<br>";
         
         
-        echo "Tamanho: ", $vetor->tamanho(), "<br>";
         
-        echo "Vetor: ", $vetor->imprimir(), "<br>";
+        echo "Tamanho: ", $vetor->size(), "<br>";
         
-        $vetor->reverter();
+        echo "Vetor: ", $vetor->printValues(), "<br>";
+        
+        $vetor->reverseOrder();
         echo "reverter()<br>";
         
-        echo "Vetor: ", $vetor->imprimir(), "<br>";
+        echo "Vetor: ", $vetor->toString(), "<br>";
         
         
         
