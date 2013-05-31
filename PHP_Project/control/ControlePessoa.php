@@ -12,7 +12,7 @@
  */
 class ControlePessoa {
     
-    const NOME = "Nome";
+    
     
 }
 

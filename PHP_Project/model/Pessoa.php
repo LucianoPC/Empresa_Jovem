@@ -16,10 +16,9 @@ class Pessoa {
     private $nome;
     private $sexo;
     private $cpf;
+    private $dataNascimento;
     
-    public function __construct($nome, $sexo, $cpf){
-        $this->setNome($nome);
-        $this->setSexo($sexo);
+    public function __construct($cpf){
         $this->setCpf($cpf);
     }
     
@@ -45,6 +44,14 @@ class Pessoa {
 
     public function setCpf($cpf) {
         $this->cpf = $cpf;
+    }
+    
+    public function getDataNascimento() {
+        return $this->dataNascimento;
+    }
+
+    public function setDataNascimento($dataNascimento) {
+        $this->dataNascimento = $dataNascimento;
     }
     
 }
