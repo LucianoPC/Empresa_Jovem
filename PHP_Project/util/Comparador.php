@@ -11,7 +11,7 @@
  */
 interface Comparador {
     
-    public function compararCom(Pessoa $pessoa);
+    public function compararCom(Person $pessoa);
 
 }
 

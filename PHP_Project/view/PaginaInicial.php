@@ -10,7 +10,21 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            header("Location: view/PaginaInicial.php");
+            include 'Moldura.php';
+            
+            iniciarPagina();
         ?>
+        
+        
+        
+        <h1> Página Principal </h1>
+        
+        
+        
+        
+        <?php
+            encerrarPagina();
+        ?>
+        
     </body>
 </html>

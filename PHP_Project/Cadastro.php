@@ -10,7 +10,10 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            header("Location: view/PaginaInicial.php");
+        
+            echo "Hello World";
+        
+        
         ?>
     </body>
 </html>
