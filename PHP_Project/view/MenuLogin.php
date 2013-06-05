@@ -2,29 +2,41 @@
 
 
     function menuFazerLogin(){
+                
+        $dominio= $_SERVER['HTTP_HOST'];
+        $url = "http://" . $dominio. $_SERVER['REQUEST_URI'];
+
         ?>
         <h4>
-            <table>
-                <form method="POST">
-                    <tr>
-                        <td> Usuário: </td>
-                        <td> <input type="text" size="10" name="usuario" /> </td>
-                    </tr>
-                    <tr>
-                        <td> Senha: </td>
-                        <td> <input type="text" size="10" name="senha" /> </td>
-                    </tr><tr>
-                        <td></td>
-                        <td> <div align="right"> <input value="login" type="submit"> </div> </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td> <div align="right"> <u> cadastre-se </u> </div> </td>
-                    </tr>
+            <form action="PaginaInicial.php" method="POST"></form>
 
-                </form>
-            </table>
+            <form action="<?php echo $url;?>" method="POST">
+
+                <?php camposLogin(); ?>
+
+                <div align="right"> <a href="Cadastrarse.php"> <u> cadastre-se </u> </a> </div>
+
+                <div align="right"> <input value="Login" type="submit"> </div>
+
+            </form>
+
         </h4>
+        <?php
+    }
+
+
+    function camposLogin(){
+        ?>
+            <table>
+                <tr>
+                    <td> Usuário: </td>
+                    <td> <input type="text" size="10" name="usuario" /> </td>
+                </tr>
+                <tr>
+                    <td> Senha: </td>
+                    <td> <input type="text" size="10" name="senha" /> </td>
+                </tr><tr>
+            </table>
         <?php
     }
 

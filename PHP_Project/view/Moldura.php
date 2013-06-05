@@ -11,13 +11,14 @@ and open the template in the editor.
     </head>
     <body>
         
-        <?php
-            include 'MenuLogin.php';
-        ?>
         
         <?php
+            include './MenuLogin.php';
         
             function iniciarPagina(){
+                
+                echo $url;
+                
                 ?>
                 <div id="container">
             
