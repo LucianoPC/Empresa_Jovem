@@ -6,13 +6,12 @@
  */
 
 /**
+ * Description of Endereco
  *
  * @author luciano
  */
-interface Comparador {
-    
-    public function compararCom(Person $pessoa);
-
+class Endereco {
+    //put your code here
 }
 
 ?>
