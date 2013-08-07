@@ -11,8 +11,7 @@ use Exception;
  *
  * @author luciano
  */
-//include 'ConexaoComBanco.php';
-//include 'model/Usuario.php';
+
 class UsuarioDAO {
     
     
@@ -35,10 +34,9 @@ class UsuarioDAO {
     }
     
     private function getQueryDeInsercao($usuario){
-        $query = "INSERT INTO `Usuario` VALUES (";
+        $query = "INSERT INTO `t_usuario` VALUES (";
         $query .= "'" . $usuario->getLogin() . "', ";
         $query .= "'" . $usuario->getSenha() . "', ";
-        $query .= "'" . $usuario->getCpf() . "', ";
         $query .= "'" . $usuario->getNome() . "', ";
         $query .= "'" . $usuario->getDataNascimento() . "', ";
         $query .= "'" . $usuario->getSexo() . "', ";

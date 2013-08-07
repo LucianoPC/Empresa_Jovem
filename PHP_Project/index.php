@@ -18,6 +18,7 @@ and open the template in the editor.
             include 'model/Usuario.php';
             include 'dao/UsuarioDAO.php';
             include 'dao/ConexaoComBanco.php';
+            include 'view/PainelCadastrarUsuario.php';
             
             $login = "LucianoPCbr";
             $senha = "321";
@@ -29,14 +30,13 @@ and open the template in the editor.
             $email = "lucianopcbr@hotmail.com";
             
             $usuario = new Usuario($login, $senha);
-            $usuario->setCpf($cpf);
             $usuario->setNome($nome);
             $usuario->setDataNascimento($dataNascimento);
             $usuario->setSexo($sexo);
             $usuario->setTelefone($telefone);
             $usuario->setEmail($email);
             
-            echo $usuario->toString();
+            echo "<br>", $usuario->toString(), "<br>";
             
             $usuarioDAO = new UsuarioDAO();
             
@@ -45,8 +45,6 @@ and open the template in the editor.
             
             echo "<br> Tudo Funcionando! <br>";
             
-            
-            //header("Location: view/PaginaInicial.php");
         ?>
     </body>
 </html>

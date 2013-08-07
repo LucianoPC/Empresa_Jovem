@@ -15,7 +15,6 @@ class Usuario {
     
     private $login;
     private $senha;
-    private $cpf;
     private $nome;
     private $dataNascimento;
     private $sexo;
@@ -42,14 +41,6 @@ class Usuario {
 
     public function setSenha($senha) {
         $this->senha = $senha;
-    }
-
-    public function getCpf() {
-        return $this->cpf;
-    }
-
-    public function setCpf($cpf) {
-        $this->cpf = $cpf;
     }
 
     public function getNome() {
