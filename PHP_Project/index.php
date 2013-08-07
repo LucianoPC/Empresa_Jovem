@@ -14,57 +14,36 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        
-            $dbname="EmpresaJovem";
-            $usuario="root";
-            $password="root";
-
-            //Conecta ao servidor MySQL. mysql_connect ' Abre uma conexão com um BD MySQL
-            if(!($id = mysql_connect("localhost",$usuario,$password))) {
-              echo "<p align=\"center\"><big><strong>Não foi possível estabelecer uma conexão   com o gerenciador MySQL. Favor Contactar o Administrador.
-              </strong></big></p>";
-              exit;
-            }
-
-            //Seleciona o Banco de Dados. mysql_select_db ' Seleciona um banco de dados MySQL.
-
-            if(!($con=mysql_select_db($dbname,$id))) {
-              echo " <p align=\"center\"><big><strong>Não foi possível estabelecer uma conexão   com o gerenciador MySQL. Favor Contactar o Administrador.
-              </strong></big></p>";
-              exit;
-            }
-        
             
-            echo "Conexão do banco aberta com sucesso<br>";
+            include 'model/Usuario.php';
+            include 'dao/UsuarioDAO.php';
+            include 'dao/ConexaoComBanco.php';
             
-            /*
-            mysql_query("INSERT INTO  `EmpresaJovem`.`Usuario` (
-                        `login` ,
-                        `senha` ,
-                        `cpf` ,
-                        `nome` ,
-                        `dataNascimento` ,
-                        `sexo` ,
-                        `telefone` ,
-                        `email`
-                        )
-                        VALUES (
-                        'lucianopc',  '123',  '11111',  'luciano',  '2013-08-13',  'M',  '123213',  'asdasd'
-                        );");
-             * 
-             */
+            $login = "LucianoPCbr";
+            $senha = "321";
+            $cpf = "222";
+            $nome = "Luciano";
+            $dataNascimento = "1992-08-13";
+            $sexo = 'M';
+            $telefone = "123321";
+            $email = "lucianopcbr@hotmail.com";
             
-            $sqlCliente = mysql_query("SELECT * FROM `Usuario`");
+            $usuario = new Usuario($login, $senha);
+            $usuario->setCpf($cpf);
+            $usuario->setNome($nome);
+            $usuario->setDataNascimento($dataNascimento);
+            $usuario->setSexo($sexo);
+            $usuario->setTelefone($telefone);
+            $usuario->setEmail($email);
             
-            echo "<br> numero de linhas: ", mysql_num_rows($sqlCliente);
+            echo $usuario->toString();
             
-            echo "<br> usuario: ", mysql_result($sqlCliente, 0, "login");
+            $usuarioDAO = new UsuarioDAO();
+            
+            $usuarioDAO->cadastrarUsuario($usuario);
             
             
-            mysql_close($id);
-            
-            echo "<br>Conexão do banco fechada com sucesso";
-            
+            echo "<br> Tudo Funcionando! <br>";
             
             
             //header("Location: view/PaginaInicial.php");

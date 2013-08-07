@@ -11,30 +11,29 @@
  * @author luciano
  */
 class ConexaoComBanco {
-    
+    private $conexao;
     
     public function __construct() {
         
     }
-    
+        
     public function iniciarConexao(){
         $dbname="EmpresaJovem";
         $usuario="root";
         $password="root";
         
-        $conexao = mysql_connect("localhost",$usuario,$password);
-        
-        if(!$conexao)
+        $this->conexao = mysql_connect("localhost",$usuario,$password);
+        $banco = mysql_select_db($dbname,$this->conexao);
+                
+        if( (!$this->conexao) || (!$banco) )
             throw new Exception("Nao foi possivel estabelecer a conexao
                                 com o banco de dados. Informe o Administrador.");
         
-        return $conexao;
     }
     
-    public function finalizarConexao($conexao){
-        mysql_close($conexao);
+    public function finalizarConexao(){
+        mysql_close($this->conexao);
     }
-    
 }
 
 ?>

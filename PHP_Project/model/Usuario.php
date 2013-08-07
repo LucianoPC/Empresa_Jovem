@@ -92,7 +92,18 @@ class Usuario {
         $this->email = $email;
     }
 
-
+    public function toString(){
+        $informacoes = "[login: " . $this->login;
+        $informacoes .= ", senha: " . $this->senha;
+        $informacoes .= ", cpf: " . $this->cpf;
+        $informacoes .= ", nome: " . $this->nome;
+        $informacoes .= ", data de nascimento: " . $this->dataNascimento;
+        $informacoes .= ", sexo: " . $this->sexo;
+        $informacoes .= ", telefone: " . $this->telefone;
+        $informacoes .= ", email: " . $this->email . "]";
+        
+        return $informacoes;
+    }
 
 }
 
