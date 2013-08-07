@@ -15,15 +15,19 @@ class Usuario {
     
     private $login;
     private $senha;
-    private $pessoa;
+    private $cpf;
+    private $nome;
+    private $dataNascimento;
+    private $sexo;
+    private $telefone;
+    private $email;
     
     
-    public function __construct($login, $senha, \Pessoa $pessoa) {
+    public function __construct($login, $senha) {
         $this->setLogin($login);
         $this->setSenha($senha);
-        $this->setPessoa($pessoa);
     }    
-
+    
     public function getLogin() {
         return $this->login;
     }
@@ -40,13 +44,54 @@ class Usuario {
         $this->senha = $senha;
     }
 
-    public function getPessoa() {
-        return $this->pessoa;
+    public function getCpf() {
+        return $this->cpf;
     }
 
-    public function setPessoa(\Pessoa $pessoa) {
-        $this->pessoa = $pessoa;
+    public function setCpf($cpf) {
+        $this->cpf = $cpf;
     }
+
+    public function getNome() {
+        return $this->nome;
+    }
+
+    public function setNome($nome) {
+        $this->nome = $nome;
+    }
+
+    public function getDataNascimento() {
+        return $this->dataNascimento;
+    }
+
+    public function setDataNascimento($dataNascimento) {
+        $this->dataNascimento = $dataNascimento;
+    }
+
+    public function getSexo() {
+        return $this->sexo;
+    }
+
+    public function setSexo($sexo) {
+        $this->sexo = $sexo;
+    }
+
+    public function getTelefone() {
+        return $this->telefone;
+    }
+
+    public function setTelefone($telefone) {
+        $this->telefone = $telefone;
+    }
+
+    public function getEmail() {
+        return $this->email;
+    }
+
+    public function setEmail($email) {
+        $this->email = $email;
+    }
+
 
 
 }
