@@ -19,6 +19,9 @@ and open the template in the editor.
             include 'dao/UsuarioDAO.php';
             include 'dao/ConexaoComBanco.php';
             include 'view/PainelCadastrarUsuario.php';
+            include './control/UsuarioControl.php';
+            include './exception/ValidacaoException.php';
+            include './model/validacao/UsuarioValidacao.php';
             
             $login = "LucianoPCbr";
             $senha = "321";
@@ -38,10 +41,49 @@ and open the template in the editor.
             
             echo "<br>", $usuario->toString(), "<br>";
             
-            $usuarioDAO = new UsuarioDAO();
+            $usuarioControl = new UsuarioControl();
             
-            $usuarioDAO->cadastrarUsuario($usuario);
+            $usuarioValidacao = new UsuarioValidacao();
             
+            $login = "loginUsuario";
+            $usuarioValidacao->validarCaracteresLogin($login);
+            
+            
+            //$usuarioDAO->cadastrarUsuario($usuario);
+            
+            echo "<br>";
+            
+            $data = date("Y-m-d", mktime (0, 0, 0, date("m"),  date("d"),  date("Y")-80));
+            $data2 = date("Y-m-d", mktime (0, 0, 0, date("m"),  date("d"),  date("Y")-13));
+            echo $data, "<br>";
+            echo $data2;
+            
+            echo '<input type="text" id="calendario" />
+                 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+                <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+                <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+                <script>
+                
+                $(function() {
+                    $( "#calendario" ).datepicker({
+                        changeMonth: true,
+                        changeYear: true,
+                        showOn: "button",
+                        buttonImage: "calendario.png",
+                        buttonImageOnly: true,
+                        showOtherMonths: true,',"
+                        dateFormat: 'dd/mm/yy',
+                        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+                        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+                        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+                        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+                        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+                    });
+                });
+
+                </script>
+                ";
             
             echo "<br> Tudo Funcionando! <br>";
             

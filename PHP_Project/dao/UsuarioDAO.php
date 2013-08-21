@@ -1,6 +1,8 @@
 <?php
 
 use Exception;
+
+include './ConexaoComBanco.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -18,16 +20,17 @@ class UsuarioDAO {
     private $ERRO_CADASTRAR = "Nao foi possivel cadastrar o usuario.
                                     Informe o Administrador.";
     
+    private $conexaoComBanco;
+    
     public function __construct() {
-        
+        $this->conexaoComBanco = new ConexaoComBanco();
     }
     
     public function cadastrarUsuario($usuario){
-        $conexaoComBanco = new ConexaoComBanco();
         $query = $this->getQueryDeInsercao($usuario);
-        $conexaoComBanco->iniciarConexao();
+        $this->conexaoComBanco->iniciarConexao();
         $resultado = mysql_query($query);
-        $conexaoComBanco->finalizarConexao();
+        $this->conexaoComBanco->finalizarConexao();
         
         if(!$resultado)
             throw new Exception($this->ERRO_CADASTRAR);
